@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Daftar Employee</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <a class="btn btn-primary" style="margin-bottom: 10px; margin-top: 10px; color:azure;" th:href="@{/employee/register}">REGISER</a>
+        <a class="btn btn-primary" style="margin-bottom: 10px; margin-top: 10px; color:azure;" th:href="@{/employee/login}">LOGIN</a>
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Fullname</th>
+                <th>Email</th>
+                <th>Birthdate</th>
+                <th>Role Name</th>
+            </tr>
+            <tbody>
+                <tr th:each="employee : ${employee}">
+                    <td th:text="${employee.Id}"></td> 
+                    <td th:text="${employee.Fullname}"></td>
+                    <td th:text="${employee.Email}"></td>
+                    <td th:text="${employee.Birthdate}"></td>
+                    <td th:text="${employee.user.role.Name}"></td>
+                    <!-- <td><a th:href="@{/region/form/{Id} (Id=${x.Id})}">Edit</a>
+                    <a th:href="@{/region/delete/{Id} (Id=${x.getId()})}">Delete</a></td> -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
