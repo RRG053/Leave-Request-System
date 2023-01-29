@@ -2,7 +2,7 @@ package com.example.demo.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "division")
+@Table(name = "tb_m_division")
 
 public class Division {
     @Id
@@ -12,10 +12,6 @@ public class Division {
 
     @Column (name = "name", nullable = false)
     private String Name;
-
-    @ManyToOne
-    @JoinColumn(name = "region_id")
-    private Region region;
 
     public Integer getId(){
         return Id;
@@ -32,11 +28,5 @@ public class Division {
     public void setName(String Name){
         this.Name = Name;
     }
-    public Region getregion(){
-        return region;
-    }
-
-    public void setregion(Region region){
-        this.region = region;
-    }
+    
 }

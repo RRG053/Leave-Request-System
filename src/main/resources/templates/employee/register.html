@@ -12,24 +12,43 @@
                     <input type="text" class="form-control" id="id" th:field="*{employee.Id}"/>
                 </div> -->
                 <div class="form-group col-md-4" >
+                    <label for="nik" class="col-form-label">NIK</label>
+                    <input type="text" class="form-control" id="nik" th:field="*{register.Nik}"/>
+                </div>
+                <div class="form-group col-md-4" >
                     <label for="name" class="col-form-label">FULLNAME</label>
-                    <input type="text" class="form-control" id="name" th:field="*{employee.Fullname}"/>
+                    <input type="text" class="form-control" id="name" th:field="*{register.Fullname}"/>
                 </div>
                 <div class="form-group col-md-4" >
-                    <label for="name" class="col-form-label">EMAIL</label>
-                    <input type="email" class="form-control" id="email" th:field="*{employee.Email}"/>
+                    <label for="email" class="col-form-label">EMAIL</label>
+                    <input type="email" class="form-control" id="email" th:field="*{register.Email}"/>
                 </div>
                 <div class="form-group col-md-4" >
-                    <label for="name" class="col-form-label">BIRTH DATE</label>
-                    <input type="date" class="form-control" id="birthdate" th:field="*{employee.Birthdate}"/>
+                    <label for="join_date" class="col-form-label">JOIN DATE</label>
+                    <input type="date" class="form-control" id="join_date" th:field="*{register.JoinDate}"/>
                 </div>
                 <div class="form-group col-md-4" >
-                    <label for="name" class="col-form-label">PASSWORD</label>
-                    <input type="password" class="form-control" id="pass" name="user.password" value=""/>
+                    <label for="number" class="col-form-label">PHONE NUMBER</label>
+                    <input type="tel" class="form-control" id="number" th:field="*{register.PhoneNumber}"/>
                 </div>
+                <div class="form-group col-md-4" >
+                    <label for="addres" class="col-form-label">ADDRESS</label>
+                    <input type="text" class="form-control" id="addres" th:field="*{register.Address}"/>
+                </div>
+                <div class="form-group col-md-4" >
+                    <label for="pass" class="col-form-label">PASSWORD</label>
+                    <input type="password" class="form-control" id="pass" th:field="*{register.password}"/>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="division">Choose Division:</label>
+                        <select class = "form-select" name="DivisionId" id="DivisionId" th:field="*{register.DivisionId}">
+                            <option th:each="x : ${division_list}" th:value="${x.Id}" th:text="${x.Name}"></option>
+                        </select>
+                        
+                    </div>
                 <div class="form-group col-md-4" hidden>
-                    <label for="name" class="col-form-label">ROLE ID</label>
-                    <input type="text" class="form-control" id="role" name="user.role" th:value="${role_id}"/>
+                    <label for="role" class="col-form-label">ROLE ID</label>
+                    <input type="number" class="form-control" id="role" name="RoleId" th:value="${role_id}"/>
                 </div>
                 <div>
                 <button type="submit" class="btn btn-primary">SUMBIT</button>

@@ -43,7 +43,4 @@ public class RoleServiceImpl implements RoleService{
     public Integer getidbylevel() {
         return roleRepository.getidbylevel();
     }
-
-    
-    
 }

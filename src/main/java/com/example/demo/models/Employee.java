@@ -4,49 +4,65 @@ import java.sql.Date;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "employee")
+@Table(name = "tb_tr_employee")
 public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
+    @Column(name = "id")
     private Integer Id;
 
-    @Column(name = "Fullname") //HARUS SESUAI NAMA TABLE
+    @Column(name = "nik") //HARUS SESUAI NAMA TABLE
+    private String Nik;
+
+    @Column(name = "fullname") //HARUS SESUAI NAMA TABLE
     private String Fullname;
 
-    @Column(name = "Email")
+    @Column(name = "email")
     private String Email;
 
-    @Column(name = "Birthdate")
-    private Date Birthdate;
+    @Column(name = "phone_number")
+    private String PhoneNumber;
+
+    @Column(name = "address")
+    private String Address;
+
+    @Column(name = "join_date")
+    private Date JoinDate;
+
+    @Column(name = "remaining_leave")
+    private Integer RemainingLeaves;
+    
+    @ManyToOne
+    @JoinColumn(name = "division_id", referencedColumnName = "id") 
+    private Division division;
 
     @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL)
     // @JoinColumn(name = "Id", referencedColumnName = "Id")
     private User user;
-    
-    public User getUser() {
-        return user;
-    }
-    
-    public void setUser(User user) {
-        this.user = user;
-    }
-    
+
     public Integer getId() {
         return Id;
     }
-    
-    public void setId(Integer Id) {
-        this.Id = Id;
+
+    public void setId(Integer id) {
+        Id = id;
     }
 
+    public String getNik() {
+        return Nik;
+    }
+
+    public void setNik(String nik) {
+        Nik = nik;
+    }
+    
     public String getFullname() {
         return Fullname;
     }
 
     public void setFullname(String fullname) {
-        this.Fullname = fullname;
+        Fullname = fullname;
     }
 
     public String getEmail() {
@@ -57,11 +73,55 @@ public class Employee {
         Email = email;
     }
 
-    public Date getBirthdate() {
-        return Birthdate;
+    public String getPhoneNumber() {
+        return PhoneNumber;
     }
 
-    public void setBirthdate(Date Birthdate) {
-        this.Birthdate = Birthdate;
+    public void setPhoneNumber(String phoneNumber) {
+        PhoneNumber = phoneNumber;
     }
+
+    public String getAddress() {
+        return Address;
+    }
+
+    public void setAddress(String Address) {
+        this.Address = Address;
+    }
+
+    public Date getJoinDate() {
+        return JoinDate;
+    }
+
+    public void setJoinDate(Date joinDate) {
+        JoinDate = joinDate;
+    }
+
+    public Integer getRemainingLeaves() {
+        return RemainingLeaves;
+    }
+
+    public void setRemainingLeaves(Integer remainingLeaves) {
+        RemainingLeaves = remainingLeaves;
+    }
+
+    public Division getDivision() {
+        return division;
+    }
+
+    public void setDivision(Division division) {
+        this.division = division;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+    
+    
+
+    
 }

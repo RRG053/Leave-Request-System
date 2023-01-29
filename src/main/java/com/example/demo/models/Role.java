@@ -2,26 +2,26 @@ package com.example.demo.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "role")
+@Table(name = "tb_m_role")
 public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
-    private Integer id;
+    @Column(name = "id")
+    private Integer Id;
 
-    @Column(name = "Name")
+    @Column(name = "name")
     private String Name;
 
     @Column(name = "level")
-    private Integer level;
+    private Integer Level;
 
     public Integer getId() {
-        return id;
+        return Id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer Id) {
+        this.Id = Id;
     }
 
     public String getName() {
@@ -33,10 +33,10 @@ public class Role {
     }
 
     public Integer getLevel() {
-        return level;
+        return Level;
     }
 
-    public void setLevel(Integer level) {
-        this.level = level;
+    public void setLevel(Integer Level) {
+        this.Level = Level;
     }
 }

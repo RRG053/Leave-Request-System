@@ -1,6 +1,7 @@
 package com.example.demo.services;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,9 +15,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
     private EmployeeRepository employeeRepository;
-
-    // @Autowired
-    // private RoleRepository roleRepository;
 
     @Override
     public List<Employee> getAll() {
@@ -35,18 +33,18 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Boolean findEmployee(String email, String password){
-        Employee x = employeeRepository.findEmployee(email, password);
-        if(x==null){
-            return false;
-        }else{
-            return true;
-        }
+    public Employee findEmployee(String email){
+        return employeeRepository.findEmployee(email);
     }
 
     @Override
     public Integer getIdEmployeeFromEmail(String email){
         return employeeRepository.getIdByEmail(email);
+    }
+
+    @Override
+    public String getNameEmployeeFromId(Integer id){
+        return employeeRepository.getNameById(id);
     }
 
     @Override

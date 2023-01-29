@@ -1,5 +1,5 @@
 package com.example.demo.services;
 
-public class RegisterService {
+public class LoginServiceImpl {
     
 }

@@ -9,6 +9,9 @@ import com.example.demo.models.Role;
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Integer> {
     
-    @Query(value = "select r.id from Role r where r.level = (select max(r.level) from role r)", nativeQuery = true)
+    @Query(value = "select r.id from tb_m_role r where r.level = (select max(r.level) from tb_m_role r)", nativeQuery = true)
     Integer getidbylevel();
+
+    @Query(value="SELECT r.name FROM tb_m_role r JOIN tb_tr_user u on r.id=u.role_id join tb_tr_employee e on e.id=u.id WHERE e.id = ?", nativeQuery = true)
+    String getRoleNameByEmployeeId(Integer id);
 }

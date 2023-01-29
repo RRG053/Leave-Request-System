@@ -10,6 +10,6 @@ public interface RoleService {
     public Role getById(Integer Id);
     public Boolean save(Role role);
     public Boolean delete(Integer Id);
-    public Integer getidbylevel();
-
+    public Integer getidbylevel(); //untuk otomatis level tertinggi pada role (4 sebagai intern) dgn query pada ROLEREPO
+    
 }

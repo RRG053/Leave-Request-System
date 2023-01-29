@@ -13,7 +13,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     
     @Transactional
     @Modifying
-    @Query(value = "UPDATE user SET password = ?2 WHERE id = ?1",nativeQuery = true)
+    @Query(value = "UPDATE tb_tr_user SET password = ?2 WHERE id = ?1",nativeQuery = true)
     void updatePasswordEmployee(Integer id, String password);
 
 }

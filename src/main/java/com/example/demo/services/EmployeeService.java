@@ -10,6 +10,7 @@ public interface EmployeeService {
     public Employee getById(Integer Id);
     public Boolean save(Employee employee);
     public Boolean delete(Integer Id); 
-    public Boolean findEmployee(String email,String password);
-    public Integer getIdEmployeeFromEmail(String email);
+    public Employee findEmployee(String email); //Digunakan untuk login dengan query dari EmpREPO
+    public Integer getIdEmployeeFromEmail(String email); //digunakan untuk update pass employee berdasar id email dgn query pada empREPO
+    public String getNameEmployeeFromId(Integer id);
 }
